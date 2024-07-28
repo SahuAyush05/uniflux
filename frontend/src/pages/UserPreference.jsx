@@ -55,7 +55,6 @@ const UserPreference = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form Data: ", formData);
     try {
       await setDoc(doc(db, "userDetail", formData.uid), {
         uid: formData.uid,

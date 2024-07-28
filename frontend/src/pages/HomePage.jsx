@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { FaHome } from "react-icons/fa";
 import { FaLaptopHouse } from "react-icons/fa";
 import { GrTest } from "react-icons/gr";
@@ -7,9 +7,49 @@ import { BsFillSuitcaseLgFill } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
 import { IoIosSettings } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
-import LogoImg from "../assets/logo.jpg";
 import { Link, Outlet } from "react-router-dom";
+import { auth, db } from "../firebase";
+import { collection, query, where, getDocs } from 'firebase/firestore';
+
 const HomePage = () => {
+  ///////////////////////
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const user = auth.currentUser;
+        if (user) {
+          const uid = user.uid;
+          const q = query(collection(db, 'userDetail'), where('uid', '==', uid));
+          const querySnapshot = await getDocs(q);
+          const userData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          setData(userData);
+          console.log(userData);
+        }
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        setLoading(false);
+      }
+    };
+
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        fetchUserData();
+      } else {
+        setLoading(false); 
+      }
+    });
+
+    return () => unsubscribe();  
+  }, [auth, db]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  //////////////////////
+
   return (
     <div className="flex flex-row w-[100%]">
       <div className="h-[100vh] w-[18%] bg-white flex flex-col ">
@@ -79,12 +119,12 @@ const HomePage = () => {
           <div className="bg-secondary text-xl p-2 my-2  h-10 flex items-center rounded-full font-medium text-[#103133]">
             <div className="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden">
               <img
-                src={LogoImg}
+                src={data[0].photo}
                 alt="logo"
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="text-m ml-2 text-white">Sahu</p>
+            <p className="text-m ml-2 text-white">{data[0].name}</p>
           </div>
         </div>
         <div className="h-[90%]">
