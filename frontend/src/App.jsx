@@ -11,6 +11,7 @@ import Ask from "./pages/overview/Ask";
 import Hired from "./pages/overview/Hired";
 import Labs from "./pages/overview/Labs";
 import ReactDocs from "./components/Courses/documentation/ReactDocs";
+import VirtualCode from "./components/labs/VirtualCode";
 import CoursePage from "./components/Courses/documentation/React/CoursePage";
 function App() {
   return (
@@ -23,15 +24,16 @@ function App() {
           <Route path="/home/Courses" element={<MiniCourses />}></Route>
           <Route
             path="/home/Courses/documentation/ReactJS"
-            element={<CoursePage/>}
+            element={<CoursePage />}
           />
           <Route
             path="/home/Courses/Assessment/ReactJS"
-            element={<CoursePage/>}
+            element={<CoursePage />}
           />
           <Route path="/home/Ask" element={<Ask />} />
           <Route path="/home/Hired" element={<Hired />} />
           <Route path="/home/Labs" element={<Labs />} />
+          <Route path="/home/Labs/VirtualCode" element={<VirtualCode />} />
         </Route>
         <Route path="/login/detail" element={<UserPreference />} />
       </Routes>
