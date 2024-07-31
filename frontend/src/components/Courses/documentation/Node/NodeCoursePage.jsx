@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "./SideBar";
-import ArticleCard from "./ArticleCard";
+import NodeSidebar from "./NodeSideBar";
+import NodeArticleCard from "./NodeArticleCard";
 import { useNavigate } from "react-router-dom";
 import { db, auth } from "../../../../firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
-function CoursePage() {
+function NodeCoursePage() {
   const navigate = useNavigate();
   const [selectedSubtopicIndex, setSelectedSubtopicIndex] = useState(0);
   const [completedSubtopics, setCompletedSubtopics] = useState([]);
 
-  // Sample subtopics (you can replace with your actual data)
   const subtopics = [
-    "What React is and why it's so popular",
-    "How to install React",
-    "React Components",
-    "React State",
-    "React Props",
-    "Handling user events in React",
-    "Lifecycle events in a React component",
+    "What is NodeJS and How to install NodeJS",
+    "Global Variables and Modules in NodeJS",
+    "Types Of Modules in Node and OS, FS , PATH Modules",
+    "Event-Driven Programming",
+    "Components Of Request-Response",
+    "What are HTTP Methods and Status codes",
+    "Let's Create a Server and Serve Something Interesting"
   ];
 
   const user = auth.currentUser;
@@ -26,7 +25,7 @@ function CoursePage() {
   useEffect(() => {
     const fetchProgress = async () => {
       if (user) {
-        const docRef = doc(db, "ReactJS", user.uid);
+        const docRef = doc(db, "NodeJS", user.uid);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
@@ -46,7 +45,7 @@ function CoursePage() {
 
   const updateProgress = async (newIndex) => {
     if (user) {
-      const docRef = doc(db, "ReactJS", user.uid);
+      const docRef = doc(db, "NodeJS", user.uid);
 
       // Get the current progress
       const docSnap = await getDoc(docRef);
@@ -87,25 +86,25 @@ function CoursePage() {
   const handleTest = () =>{
     setSelectedSubtopicIndex((prevIndex) => {
       updateProgress(prevIndex);
-      navigate('/home/Courses/Assessment/ReactJS')
+      navigate('/home/Courses/Assessment/NodeJS')
     });
   }
+
 
   return (
     <div className="flex h-full">
       {/* Sidebar */}
-      <Sidebar
+      <NodeSidebar
         subtopics={subtopics}
         selectedSubtopic={subtopics[selectedSubtopicIndex]}
-        onSelectSubtopic={(index) => {
-          setSelectedSubtopicIndex(index);
-        }}
+        onSelectSubtopic={(index) => setSelectedSubtopicIndex(index)}
         completedSubtopics={completedSubtopics}
+        
       />
 
       {/* Main content */}
       <div className="flex-grow w-5/6 px-8 py-4">
-        <ArticleCard
+        <NodeArticleCard
           subtopic={subtopics[selectedSubtopicIndex]}
           onNext={handleNext}
           onBack={handleBack}
@@ -116,4 +115,4 @@ function CoursePage() {
   );
 }
 
-export default CoursePage;
+export default NodeCoursePage;

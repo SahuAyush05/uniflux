@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
-  const navigate =useNavigate();
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,11 +22,9 @@ const Login = () => {
       setEmail(value);
     } else if (name === 'password') {
       setPassword(value);
-    }
-    else if (name==='name'){
+    } else if (name === 'name') {
       setName(value);
-    }
-    else if  (name==='cnfpassword'){
+    } else if (name === 'cnfpassword') {
       setCnfpassword(value);
     }
   };
@@ -94,6 +92,9 @@ const Login = () => {
         alert('Sign In Successfull!!!')
         navigate(`./detail?name=${encodeURIComponent(name)}&ph=${encodeURIComponent(profilePictureUrl)}`, { replace: true });
      }))
+     .catch((error)=>{
+      alert(error);
+     })
   };
 
 
@@ -125,11 +126,12 @@ const Login = () => {
     height: "100vh",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    padding: "2rem 0"
     }}>
     <Paper elevation={3} sx={{padding: 4, display: "flex", flexDirection: "column", alignItems: "center"}}>
       {isLogin ? <>
-      <Typography variant="hs">Login</Typography>
+      <Typography variant="h5">Login</Typography>
       <form style={{
         width: "100%",
         marginTop: "1rem",
@@ -155,7 +157,7 @@ const Login = () => {
         <Button  fullWidth sx={{color:"#2d8c92"}} onClick={()=>setIsLogin(false)} variant="text">Sign Up</Button>
       </form>
       </> : <>
-      <Typography variant="hs">Sign Up</Typography>
+      <Typography variant="h5">Sign Up</Typography>
       <form style={{
         width: "100%",
         marginTop: "1rem",

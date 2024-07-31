@@ -1,6 +1,6 @@
 import React from "react";
 
-function Sidebar({ subtopics, selectedSubtopic, onSelectSubtopic, completedSubtopics }) {
+function DevSidebar({ subtopics, selectedSubtopic, onSelectSubtopic, completedSubtopics }) {
   return (
     <div className="w-[300px] p-4 h-full overflow-y-scroll scrollbar-hide">
       <ul className="border border-primary bg-white rounded-md shadow-md divide-y divide-gray-200">
@@ -27,4 +27,4 @@ function Sidebar({ subtopics, selectedSubtopic, onSelectSubtopic, completedSubto
   );
 }
 
-export default Sidebar;
+export default DevSidebar;

@@ -90,7 +90,12 @@ const UserPreference = () => {
   };
 
   return (
-    <Container component="main" maxWidth="md">
+    <Container component="main" maxWidth="md" sx={{
+      height: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+    }}>
       <Paper elevation={3} sx={{ padding: 4, borderRadius: 2 }}>
         <Typography variant="h5" component="h1" gutterBottom>
           User Detail Form
@@ -244,7 +249,14 @@ const UserPreference = () => {
 
             <Grid item xs={12}>
               <Stack direction="row" spacing={2} sx={{ marginTop: 2 }}>
-                <Button variant="contained" color="primary" type="submit">
+                <Button variant="contained" sx={{
+                      marginTop: "1rem",
+                      background: "#2d8c92",
+                      color: "white",
+                      '&:hover': {
+                        background: "#206f75"
+                      }
+                    }} type="submit">
                   Submit
                 </Button>
                 <Button

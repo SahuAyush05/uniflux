@@ -2,11 +2,13 @@ import React from "react";
 import ReactLogo from "../assets/ReactLogo.png";
 import DevOpsLogo from "../assets/DevopsLogo.png";
 import NodeLogo from "../assets/NodeJSLogo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { db, auth } from "../firebase";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const courses = [
   {
-    courseName: "React JS",
+    courseName: "ReactJS",
     Img: ReactLogo,
     courseDescription: ["Complete React JS Tutorial", "Beginner to Advanced"],
     documentation: {
@@ -21,59 +23,52 @@ const courses = [
     Img: DevOpsLogo,
     courseDescription: ["DevOps for Beginners", "Includes AWS & Docker"],
     documentation: {
-      link: "https://reactjs.org/docs/getting-started.html",
+      link: "/home/Courses/documentation/DevOps",
     },
     assessment: {
-      link: "https://reactjs.org/docs/getting-started.html",
+      link: "/home/Courses/documentation/DevOps",
     },
   },
   {
-    courseName: "Node JS",
+    courseName: "NodeJS",
     Img: NodeLogo,
     courseDescription: [
       "Node JS for Backend Developers",
       "Beginner to Advanced",
     ],
     documentation: {
-      link: "https://reactjs.org/docs/getting-started.html",
+      link: "/home/Courses/documentation/NodeJS",
     },
     assessment: {
-      link: "https://reactjs.org/docs/getting-started.html",
-    },
-  },
-  {
-    courseName: "Node JS",
-    Img: NodeLogo,
-    courseDescription: [
-      "Node JS for Backend Developers",
-      "Beginner to Advanced",
-    ],
-    documentation: {
-      link: "https://reactjs.org/docs/getting-started.html",
-    },
-    assessment: {
-      link: "https://reactjs.org/docs/getting-started.html",
-    },
-  },
-  {
-    courseName: "Node JS",
-    Img: NodeLogo,
-    courseDescription: [
-      "Node JS for Backend Developers",
-      "Beginner to Advanced",
-    ],
-    documentation: {
-      link: "https://reactjs.org/docs/getting-started.html",
-    },
-    assessment: {
-      link: "https://reactjs.org/docs/getting-started.html",
+      link: "/home/Courses/documentation/NodeJS",
     },
   },
 ];
 
 const CourseCard = () => {
+  const navigate = useNavigate();
+
+  const handleJoinJourney = async (courseLink, courseName) => {
+    const user = auth.currentUser;
+
+    if (user) {
+      const docRef = doc(db, courseName, user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (!docSnap.exists()) {
+        await setDoc(docRef, { uid:user.uid,
+          progress: [] });
+      }
+
+      navigate(courseLink);
+    } else {
+      // Handle case where user is not authenticated
+      console.log("User is not authenticated");
+    }
+  };
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 with-sidebar:grid-cols-4 gap-4 w-full overflow-y-scroll h-full  scrollbar-hide justify-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 with-sidebar:grid-cols-4 gap-4 w-full overflow-y-scroll h-full scrollbar-hide justify-center">
       {courses.map((course, index) => (
         <div
           key={index}
@@ -96,11 +91,11 @@ const CourseCard = () => {
             {course.courseDescription[1]}
           </p>
           <div className="flex gap-2 justify-between w-full">
-            <div className="bg-white text-secondary w-[43%] font-medium text-[0.7em] py-2 px-4 rounded-md shadow-md transition duration-300 hover:bg-gray-200 text-center">
-              <Link to={course.documentation.link}>Documentation</Link>
-            </div>
-            <div className="bg-white text-secondary w-[43%] font-medium text-[0.7em] py-2 px-4 rounded-md shadow-md transition duration-300 hover:bg-gray-200 text-center">
-              <Link to={course.assessment.link}>Assessment</Link>
+            <div
+              className="bg-white text-secondary w-[100%] font-medium text-[0.7em] py-2 px-4 rounded-md shadow-md transition duration-300 hover:bg-gray-200 text-center cursor-pointer"
+              onClick={() => handleJoinJourney(course.documentation.link, course.courseName)}
+            >
+              Join the Journey
             </div>
           </div>
         </div>

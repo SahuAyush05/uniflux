@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "./SideBar";
-import ArticleCard from "./ArticleCard";
+import DevSidebar from "./DevSideBar";
+import DevArticleCard from "./DevArticleCard";
 import { useNavigate } from "react-router-dom";
 import { db, auth } from "../../../../firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
-function CoursePage() {
-  const navigate = useNavigate();
+function DevCoursePage() {
+  const navigate =useNavigate();
   const [selectedSubtopicIndex, setSelectedSubtopicIndex] = useState(0);
   const [completedSubtopics, setCompletedSubtopics] = useState([]);
 
-  // Sample subtopics (you can replace with your actual data)
   const subtopics = [
-    "What React is and why it's so popular",
-    "How to install React",
-    "React Components",
-    "React State",
-    "React Props",
-    "Handling user events in React",
-    "Lifecycle events in a React component",
+    "What is DevOps?",
+    "How Does DevOps Work?",
+    "Why Do You Need a DevOps Specialist?",
+    "DevOps Life Cycle",
+    "Myths about DevOps",
   ];
 
   const user = auth.currentUser;
@@ -26,7 +23,7 @@ function CoursePage() {
   useEffect(() => {
     const fetchProgress = async () => {
       if (user) {
-        const docRef = doc(db, "ReactJS", user.uid);
+        const docRef = doc(db, "DevOps", user.uid);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
@@ -46,7 +43,7 @@ function CoursePage() {
 
   const updateProgress = async (newIndex) => {
     if (user) {
-      const docRef = doc(db, "ReactJS", user.uid);
+      const docRef = doc(db, "DevOps", user.uid);
 
       // Get the current progress
       const docSnap = await getDoc(docRef);
@@ -87,14 +84,14 @@ function CoursePage() {
   const handleTest = () =>{
     setSelectedSubtopicIndex((prevIndex) => {
       updateProgress(prevIndex);
-      navigate('/home/Courses/Assessment/ReactJS')
+      navigate('/home/Courses/Assessment/Devops')
     });
   }
 
   return (
     <div className="flex h-full">
       {/* Sidebar */}
-      <Sidebar
+      <DevSidebar
         subtopics={subtopics}
         selectedSubtopic={subtopics[selectedSubtopicIndex]}
         onSelectSubtopic={(index) => {
@@ -105,7 +102,7 @@ function CoursePage() {
 
       {/* Main content */}
       <div className="flex-grow w-5/6 px-8 py-4">
-        <ArticleCard
+        <DevArticleCard
           subtopic={subtopics[selectedSubtopicIndex]}
           onNext={handleNext}
           onBack={handleBack}
@@ -116,4 +113,4 @@ function CoursePage() {
   );
 }
 
-export default CoursePage;
+export default DevCoursePage;
