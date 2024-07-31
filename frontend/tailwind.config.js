@@ -10,6 +10,11 @@ export default {
         'primary': '#103133',
         'secondary': '#2d8c92'
       },
+      screens: {
+        '2xl': '1400px',
+        'with-sidebar': { 'max': '1280px' },
+      },
+
     },
   },
   plugins: [],

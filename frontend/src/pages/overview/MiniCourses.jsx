@@ -1,8 +1,11 @@
 import React from 'react'
+import CourseCard from '../../components/CourseCard'
 
 const MiniCourses = () => {
   return (
-    <div>MiniCourses</div>
+    <>
+    <CourseCard/>
+    </>
   )
 }
 
