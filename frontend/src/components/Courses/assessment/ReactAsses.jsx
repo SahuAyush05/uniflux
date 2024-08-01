@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 // Inline styles for simplicity
 const styles = {
   container: {
@@ -7,7 +7,10 @@ const styles = {
     maxWidth: '800px',
     margin: '0 auto',
     fontFamily: 'Arial, sans-serif',
-    backgroundColor:'#ededed'
+    backgroundColor:'#ededed',
+    height: '650px',
+    overflowY: 'auto',
+    border: '1px solid #000000',
   },
   heading: {
     color: '#000000',
@@ -135,7 +138,8 @@ const ReactAsses = () => {
       </ol>
 
       <p style={styles.paragraph}>
-        Remember to keep your code clean, follow best practices, and consider error handling (e.g., what happens if local storage is not available). Test your application thoroughly.
+      <Link className='text-2xl text-emerald-600' to='/home/Labs/VirtualCode' >Code Here</Link>
+        <div>Remember to keep your code clean, follow best practices, and consider error handling (e.g., what happens if local storage is not available). Test your application thoroughly.</div>
       </p>
     </div>
   );
