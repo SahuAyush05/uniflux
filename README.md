@@ -42,3 +42,12 @@ UniFlux is an innovative platform aimed at revolutionizing the skilling landscap
    ```bash
    npm run dev
 
+![WhatsApp Image 2024-08-01 at 16 52 08_0e5c4ef2](https://github.com/user-attachments/assets/567610cf-f656-443c-9cff-18810d931ef3)
+
+![WhatsApp Image 2024-08-01 at 21 59 33_824df831](https://github.com/user-attachments/assets/a8b15bb0-6501-4cd1-9c03-c36c0f14e7e6)
+
+![WhatsApp Image 2024-08-01 at 16 52 07_c7bc727b](https://github.com/user-attachments/assets/e5fffbd6-4b2b-408d-a4df-47f533729633)
+
+![WhatsApp Image 2024-08-01 at 16 52 07_ffc45f8b](https://github.com/user-attachments/assets/4cc39082-6713-4c20-a4e7-2bf574cdfc89)
+
+
