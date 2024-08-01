@@ -18,6 +18,8 @@ import NodeCoursePage from "./components/Courses/documentation/Node/NodeCoursePa
 import DevCoursePage from "./components/Courses/documentation/Devops/DevCoursePage";
 import NodeAsses from "./components/Courses/assessment/NodeAsses";
 import DevopsAsses from "./components/Courses/assessment/DevopsAsses";
+import ProbPage from './components/AskExperts/ProbPage';
+
 function App() {
   return (
     <BrowserRouter>
@@ -46,6 +48,7 @@ function App() {
             element={<DevopsAsses />}
           />
           <Route path="/home/Ask" element={<Ask />} />
+          <Route path="/home/Ask/Problempage" element={<ProbPage />} />
           <Route path="/home/Hired" element={<Hired />} />
           <Route path="/home/Labs" element={<Labs />} />
           <Route path="/home/Labs/VirtualCode" element={<VirtualCode />} />
