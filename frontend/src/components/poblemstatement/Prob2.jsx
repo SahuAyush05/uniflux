@@ -41,7 +41,7 @@ const styles = {
 
 const Prob2 = () => {
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className='overflow-y-scroll h-full scrollbar-hide'>
       <h1 className="text-6xl" style={styles.heading}>CI/CD Pipeline Setup with GitHub Actions</h1>
 
       <h2 className="text-2xl" style={styles.subheading}>Problem Statement</h2>

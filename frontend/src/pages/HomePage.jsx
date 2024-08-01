@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { FaHome, FaLaptopHouse, FaUserAlt } from "react-icons/fa";
 import { GrTest } from "react-icons/gr";
 import { PiStudentBold } from "react-icons/pi";
@@ -52,10 +54,6 @@ const HomePage = () => {
     return () => unsubscribe();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -71,14 +69,20 @@ const HomePage = () => {
           <h2 className="text-white text-[2.2em]">uniflux</h2>
         </div>
         <div className="bg-secondary text-xl p-2 my-2 h-10 flex items-center rounded-full font-medium text-[#103133]">
-          <div className="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden">
-            <img
-              src={data[0]?.photo || "default-avatar.png"}
-              alt="profile"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <p className="text-m ml-2 text-white">{data[0]?.name || "User"}</p>
+          {loading ? (
+            <Skeleton circle height={40} width={40} />
+          ) : (
+            <div className="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden">
+              <img
+                src={data[0]?.photo || "default-avatar.png"}
+                alt="profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+          <p className="text-m ml-2 text-white">
+            {loading ? <Skeleton width={100} /> : data[0]?.name || "User"}
+          </p>
         </div>
       </div>
 
@@ -98,7 +102,7 @@ const HomePage = () => {
                 onClick={toggleSidebar}
                 className="text-secondary text-3xl font-extrabold p-2 mb-4"
               >
-                <RiCloseCircleLine  />
+                <RiCloseCircleLine />
               </button>
             </span>
             <p className="text-secondary text-sm">UPSKILL TECHNOLOGY</p>
@@ -165,7 +169,9 @@ const HomePage = () => {
             isSidebarOpen ? "ml-[18%]" : "ml-0"
           }`}
         >
-          <Outlet />
+          
+            <Outlet />
+          
         </div>
       </div>
     </div>

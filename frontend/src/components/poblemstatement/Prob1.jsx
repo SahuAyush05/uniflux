@@ -9,7 +9,7 @@ const styles = {
     fontFamily: 'Arial, sans-serif',
     backgroundColor: '#ededed',
     height: '650px',
-    overflowY: 'auto',
+    
     border: '1px solid #000000',
   },
   heading: {
@@ -41,7 +41,7 @@ const styles = {
 
 const Prob1 = () => {
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className='overflow-y-scroll h-full scrollbar-hide'>
       <h1 className="text-6xl" style={styles.heading}>Summarize YouTube Videos with LlamaIndex</h1>
 
       <h2 className="text-2xl" style={styles.subheading}>Problem Statement</h2>

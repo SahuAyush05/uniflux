@@ -46,7 +46,7 @@ const problems = [
 const Problem= () => {
   const navigate =useNavigate();
   const handleSolveClick = (problemTitle) => {
-    navigate(`./ProblemPage?problem=${encodeURIComponent(problemTitle)}}`)
+    navigate(`./ProblemPage?problem=${encodeURIComponent(problemTitle)}`)
   };
 
   return (

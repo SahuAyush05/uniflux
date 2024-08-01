@@ -4,7 +4,7 @@ import CodeTerminal from "./Terminal";
 
 const VirtualCode = () => {
   return (
-    <div className="flex flex-col w-full overflow-y-scroll h-full  scrollbar-hide">
+    <div className="flex flex-col w-full overflow-y-scroll h-full scrollbar-hide">
       <header className="text-white text-2xl font-bold text-center p-2 mt-6">
         Interactive Code Lab
       </header>

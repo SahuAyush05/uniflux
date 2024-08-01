@@ -29,7 +29,7 @@ const ProbPage = () => {
     // };
 
   return (
-    <div className="flex h-full">
+    <div className="flex h-full ">
       {/* Sidebar */}
       <Sidebar
         subtopics={subtopics}

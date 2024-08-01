@@ -41,7 +41,7 @@ const styles = {
 
 const Prob3 = () => {
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className='overflow-y-scroll h-full scrollbar-hide'>
       <h1 className="text-6xl" style={styles.heading}>Real-Time Chat App with React, WebSocket, Node.js, Docker, and Kubernetes</h1>
 
       <h2 className="text-2xl" style={styles.subheading}>Problem Statement</h2>
