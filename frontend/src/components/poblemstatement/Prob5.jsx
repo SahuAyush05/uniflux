@@ -41,59 +41,63 @@ const styles = {
 
 const Prob5 = () => {
   return (
-    <div style={styles.container} className='overflow-y-scroll h-full scrollbar-hide'>
+    <div style={styles.container} className="overflow-y-scroll h-full scrollbar-hide">
       <h1 className="text-6xl" style={styles.heading}>
-        Secure Authentication System with Role-Based Access Control
+        Migrating a Monolithic Application to Microservices Architecture
       </h1>
 
       <h2 className="text-2xl" style={styles.subheading}>
         Problem Statement
       </h2>
       <p style={styles.paragraph}>
-        Build a secure authentication system using React.js for the front end and Node.js with JWT (JSON Web Tokens) for the back end. Implement role-based access control (RBAC) to manage user permissions and set up a continuous deployment pipeline to automate the deployment process.
+        Transition an existing monolithic application to a microservices architecture to improve scalability, maintainability, and performance. This involves breaking down the application into discrete services with well-defined boundaries and ensuring they can operate independently and efficiently.
       </p>
 
       <h3 style={styles.subheading}>Objective</h3>
       <p style={styles.paragraph}>
-        Develop a robust authentication mechanism that supports different user roles and permissions. Automate the deployment process to ensure the application can be updated efficiently and securely.
+        Develop a microservices-based architecture that enhances the flexibility and scalability of the application, allowing for independent development, deployment, and scaling of services. The new architecture should facilitate easier maintenance and faster delivery of new features.
       </p>
 
       <h3 style={styles.subheading}>Key Challenges</h3>
       <ol style={styles.list}>
         <li style={styles.listItem}>
-          <strong>Authentication and Authorization</strong>:
+          <strong>Analyze the Existing Monolithic Application</strong>:
           <ul style={styles.list}>
-            <li>Implement secure user authentication using JWT to manage sessions and permissions.</li>
+            <li>Identify and document at least 10 core functionalities and dependencies within the current monolithic application.</li>
           </ul>
         </li>
         <li style={styles.listItem}>
-          <strong>Role-Based Access Control (RBAC)</strong>:
+          <strong>Design Microservices Architecture</strong>:
           <ul style={styles.list}>
-            <li>Design a role-based system to control access to different parts of the application based on user roles.</li>
+            <li>Define at least 5 microservices with clear boundaries and responsibilities.</li>
+            <li>Ensure each service can handle at least 100 requests per second.</li>
           </ul>
         </li>
         <li style={styles.listItem}>
-          <strong>Front-End Integration</strong>:
+          <strong>Develop Microservices</strong>:
           <ul style={styles.list}>
-            <li>Create a user-friendly interface in React.js for login, registration, and role management.</li>
+            <li>Implement each microservice with 90% unit test coverage to ensure reliability.</li>
+            <li>Ensure each service has a response time of less than 200 ms to meet performance requirements.</li>
           </ul>
         </li>
         <li style={styles.listItem}>
-          <strong>Continuous Deployment</strong>:
+          <strong>Setup Infrastructure for Microservices</strong>:
           <ul style={styles.list}>
-            <li>Set up a CI/CD pipeline to automate the testing, building, and deployment of the application.</li>
+            <li>Deploy services on a Kubernetes cluster with at least 3 nodes to provide scalability and resilience.</li>
+            <li>Set up CI/CD pipelines with automated tests for each microservice to streamline development and deployment processes.</li>
           </ul>
         </li>
         <li style={styles.listItem}>
-          <strong>Security</strong>:
+          <strong>Test and Deploy Microservices</strong>:
           <ul style={styles.list}>
-            <li>Ensure data is securely transmitted and stored, protecting against common security threats such as XSS and CSRF.</li>
+            <li>Achieve 99.9% uptime during testing to ensure high availability.</li>
+            <li>Conduct load testing with at least 1,000 concurrent users to validate the performance and scalability of the new architecture.</li>
           </ul>
         </li>
       </ol>
 
       <p style={styles.paragraph}>
-        This solution will ensure a secure and scalable authentication system, leveraging the power of JWT for secure token-based authentication and role-based access control to manage user permissions effectively.
+        By migrating to a microservices architecture, the application will gain improved scalability and flexibility, enabling teams to work independently on different services. This transition will also enhance the application's ability to handle increased loads and deliver features more rapidly.
       </p>
     </div>
   );

@@ -19,12 +19,12 @@ const problems = [
     },
     {
       companyName: 'CloudTech Solutions',
-      problemTitle: 'Implement SSR for a React.js app using Next.js and Node.js. Deploy with Docker and set up monitoring with Prometheus and Grafana.',
+      problemTitle: 'Implement a Secure Authentication System for a Web Application Subtasks.',
       expertName: 'Aditya Verma',
     },
     {
       companyName: 'WebOps Pro',
-      problemTitle: 'Build a secure authentication system using React.js, Node.js, and JWT. Implement role-based access control and continuous deployment.',
+      problemTitle: 'Migrating a Monolithic Application to Microservices Architecture.',
       expertName: 'Harsh Upadhyay',
     },
     // {

@@ -41,7 +41,7 @@ const styles = {
 
 const DevopsAsses = () => {
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className="overflow-y-scroll h-full scrollbar-hide">
       <h1 className='text-6xl' style={styles.heading}>Assessment for DevOps</h1>
 
       <h2 className='text-xl' style={styles.subheading}>DevOps Engineer (Basic) Test</h2>

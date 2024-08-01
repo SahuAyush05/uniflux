@@ -42,7 +42,7 @@ const styles = {
 
 const NodeAsses = () => {
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className="overflow-y-scroll h-full scrollbar-hide">
       <h1 className='text-6xl' style={styles.heading}>Assessment for Node.js</h1>
 
       <h2 className='text-2xl' style={styles.subheading}>Mini Assessment: Node.js Fundamentals</h2>

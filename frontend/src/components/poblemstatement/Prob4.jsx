@@ -41,60 +41,62 @@ const styles = {
 
 const Prob4 = () => {
   return (
-    <div style={styles.container} className='overflow-y-scroll h-full scrollbar-hide'>
+    <div style={styles.container} className="overflow-y-scroll h-full scrollbar-hide">
       <h1 className="text-6xl" style={styles.heading}>
-        Implementing SSR with Next.js and Node.js
+        Implementing a Secure Authentication System for a Web Application
       </h1>
 
       <h2 className="text-2xl" style={styles.subheading}>
         Problem Statement
       </h2>
       <p style={styles.paragraph}>
-        Implement server-side rendering (SSR) for a React.js application using Next.js and Node.js. Deploy the application using Docker for containerization and ensure scalability and reliability. Additionally, set up monitoring with Prometheus and Grafana to observe the application’s performance and metrics.
+        Design and implement a secure authentication system for a web application that supports multiple user roles and ensures high performance and security. The system must efficiently handle concurrent sessions and provide robust protection against security threats.
       </p>
 
       <h3 style={styles.subheading}>Objective</h3>
       <p style={styles.paragraph}>
-        Create a scalable, production-ready React.js application with server-side rendering using Next.js. Utilize Docker for deployment and set up comprehensive monitoring with Prometheus and Grafana to ensure optimal performance and observability.
+        Develop a scalable and secure authentication system that offers fast and reliable login experiences for users while maintaining rigorous security standards to protect user data and privacy.
       </p>
 
       <h3 style={styles.subheading}>Key Challenges</h3>
       <ol style={styles.list}>
         <li style={styles.listItem}>
-          <strong>Server-Side Rendering (SSR)</strong>:
+          <strong>Choose an Authentication Strategy</strong>:
           <ul style={styles.list}>
-            <li>Set up SSR to improve SEO and initial load performance using Next.js.</li>
+            <li>Ensure the chosen strategy supports at least 3 different user roles.</li>
           </ul>
         </li>
         <li style={styles.listItem}>
-          <strong>Integration with Node.js</strong>:
+          <strong>Design Authentication Flow</strong>:
           <ul style={styles.list}>
-            <li>Utilize Node.js to handle server-side logic and API integrations efficiently.</li>
+            <li>Plan flows to handle at least 1,000 concurrent sessions effectively.</li>
           </ul>
         </li>
         <li style={styles.listItem}>
-          <strong>Docker Deployment</strong>:
+          <strong>Develop Authentication Backend</strong>:
           <ul style={styles.list}>
-            <li>Containerize the application using Docker to ensure consistency across environments and streamline the deployment process.</li>
+            <li>Implement API endpoints with 95% unit test coverage.</li>
+            <li>Achieve a login response time of less than 150 ms.</li>
           </ul>
         </li>
         <li style={styles.listItem}>
-          <strong>Monitoring and Observability</strong>:
+          <strong>Secure the Application</strong>:
           <ul style={styles.list}>
-            <li>Set up Prometheus to collect metrics and Grafana to visualize and monitor application performance.</li>
+            <li>Implement HTTPS with an A+ rating on SSL Labs.</li>
+            <li>Prevent more than 99% of brute-force attacks through rate limiting.</li>
           </ul>
         </li>
         <li style={styles.listItem}>
-          <strong>Scalability</strong>:
+          <strong>Integrate Frontend with Authentication System</strong>:
           <ul style={styles.list}>
-            <li>Ensure the application can scale horizontally to handle increased loads efficiently.</li>
+            <li>Ensure the frontend handles authentication state changes within 200 ms.</li>
+            <li>Achieve a user authentication success rate of 99.5%.</li>
           </ul>
         </li>
       </ol>
 
-
       <p style={styles.paragraph}>
-        By implementing SSR with Next.js and deploying with Docker, the application will benefit from improved SEO and performance. The addition of Prometheus and Grafana will provide crucial insights into the application's health, enabling proactive management and optimization.
+        By implementing a comprehensive authentication system, the web application will provide users with secure and efficient access while safeguarding sensitive information. The integration of robust security measures and performance optimizations ensures that the application meets modern standards for reliability and user experience.
       </p>
     </div>
   );
